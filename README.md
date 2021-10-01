@@ -2,6 +2,8 @@
 
 「开黑啦通用版」是使用 [Electron](https://www.electronjs.org) 对 [开黑啦](https://kaiheila.cn) 的封装，使之可以在大多数 PC 系统上原生运行。
 
+2021.10.01 修复在Linux上最小化至托盘无法呼出的问题
+
 ## 沟通与交流
 
 交流服务器：<https://kaihei.co/hy9sB7>
