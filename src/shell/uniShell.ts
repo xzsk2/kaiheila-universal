@@ -78,11 +78,18 @@ export class UniShell implements IInitializable {
   // Utils
   private preventWindowClose = this.preventWindowCloseIntl.bind(this)
   private quitApp = this.quitAppIntl.bind(this)
+  private raiseApp = this.raiseAppIntl.bind(this)
+
 
   private preventWindowCloseIntl(e: Electron.Event): void {
     if (e.preventDefault) e.preventDefault()
     this.mainWindow.hide()
   }
+
+  private raiseAppIntl(): void {
+    this.mainWindow.show();
+    this.mainWindow.focus();
+}
 
   private quitAppIntl(): void {
     this.mainWindow.removeListener('close', this.preventWindowClose)
@@ -153,6 +160,10 @@ export class UniShell implements IInitializable {
     },
   ]
   private trayMenuTemplate: Electron.MenuItemConstructorOptions[] = [
+    {
+      label: '显示主界面',
+      click: this.raiseApp,
+    },
     {
       label: '退出',
       click: this.quitApp,
